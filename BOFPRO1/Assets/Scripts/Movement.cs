@@ -6,6 +6,7 @@ using UnityEngine.Rendering;
 public class Movement : MonoBehaviour
 {
     public float speed;
+    private Vector3 direction;
 
     private void Update()
     {
@@ -17,9 +18,13 @@ public class Movement : MonoBehaviour
 
         Vector3 direction = new Vector3(horizontal, vertical);
 
-        // nu har vi en riktning, nu måste vi bara lägga till den till vår nuvarande position
-
-        transform.position += direction * speed * Time.deltaTime;
+        // nu har vi en riktning, nu måste vi bara lägga till den till vår nuvarande position, detta gör vi i en fixedupdate eftersom vi först vill att programmet ska leta räkna ut collitions före spelaren rör sig 
 
     }
+
+    private void FixedUpdate()
+    {
+        transform.position += direction * speed * Time.deltaTime;
+    }
+
 }
