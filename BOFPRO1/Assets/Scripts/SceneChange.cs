@@ -14,11 +14,8 @@ public class shopIngång : MonoBehaviour
     {
 
     }
-    void OnCollisionEnter2D(Collider2D collider)
+    void OnTriggerEnter2D(Collider2D other)
     {
-        if (collider.name == "Player")
-        {
-            SceneManager.LoadScene(sceneId);
-        }
+        if(other.tag == "Player") { SceneManager.LoadScene(sceneId); }
     }
 }
