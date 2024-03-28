@@ -4,23 +4,19 @@ using System.Collections.Generic;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class FIshingMiniGame : MonoBehaviour
 {
     [SerializeField] Transform topPivot;
     [SerializeField] Transform bottomPivot;
-
     [SerializeField] Transform fish;
-
     float fishPosition;
     float fishDestination;
-
     float fishTimer;
     [SerializeField] float timerMultiplicator = 3f;
-
     float fishSpeed;
     [SerializeField] float smoothMotion = 1f;
-
     [SerializeField] Transform hook;
     float hookPosition;
     [SerializeField] float hookSize = 0.1f;
@@ -30,17 +26,14 @@ public class FIshingMiniGame : MonoBehaviour
     [SerializeField] float hookPullPower = 0.01f; // power applicerad till din hook, ju högre värde desto snabbare kommer hook området att höjas
     [SerializeField] float hookGravityPower = 0.005f;// är kraften som kommer att dra ner hooken
     [SerializeField] float hookProgressDegrationPower = 0.1f;// är hastigheten för hookProgressDegration och när din fisk inte är inom hookens range kommer hookProgress att sakta försämras
-
     [SerializeField] SpriteRenderer hookSpriteRenderer;
-
     [SerializeField] Transform progressBarContainer;
-
-    bool pause = false;
-
     [SerializeField] float Failtimer = 10f; // innebär att om vår firre är utanför hook området i 10 sekunder totalt tappar du firren
-
     public TextMeshProUGUI winText;
     public TextMeshProUGUI loseText;
+    private float timeToAppear = 2f;
+    private float timeWhenDisappear = 0f;
+    private bool fishing;
 
     private void Start()
     {
@@ -48,15 +41,27 @@ public class FIshingMiniGame : MonoBehaviour
         
         winText.enabled = false;
         loseText.enabled = false;
+        fishing = true;
     }
 
     private void Update()
     {
-        if (pause) { return; }
 
-        Fish();
-        Hook();
-        ProgressCheck();
+        if (fishing)
+        {
+            Fish();
+            Hook();
+            ProgressCheck();
+        }
+
+        if (winText.enabled && (Time.time > timeWhenDisappear))
+        {
+            SceneManager.LoadScene("Frans");
+        }
+        if (loseText.enabled && (Time.time > timeWhenDisappear))
+        {
+            SceneManager.LoadScene("Frans");
+        }
     }
 
     private void Resize()
@@ -112,15 +117,17 @@ public class FIshingMiniGame : MonoBehaviour
 
     private void Lose()
     {
-        pause = true;
+        fishing = false;
         loseText.enabled = true;
+        timeWhenDisappear = Time.time + timeToAppear;
         Debug.Log("Tönt");
     }
 
     private void Win()
     {
-        pause = true;
+        fishing = false;
         winText.enabled = true;
+        timeWhenDisappear = Time.time + timeToAppear;
         Debug.Log("Bra att du kan gö nåt i ditt pissliv iallafall");
     }
 
