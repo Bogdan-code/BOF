@@ -160,8 +160,13 @@ GameObject:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+<<<<<<< HEAD:BOFPRO1/Assets/Scenes/Pung.unity
   - {fileID: 1760491164}
   m_Father: {fileID: 1533024411}
+=======
+  - {fileID: 906095839}
+  m_Father: {fileID: 0}
+>>>>>>> parent of 1403982 (w):BOFPRO1/Assets/Scenes/ö.unity
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -360,6 +365,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1533024411}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< HEAD:BOFPRO1/Assets/Scenes/Pung.unity
 --- !u!1 &475846404
 GameObject:
   m_ObjectHideFlags: 0
@@ -712,6 +718,8 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 =======
 >>>>>>> 809d4938a2eae6b48c45d08c4e9272921d6f47cc
+=======
+>>>>>>> parent of 1403982 (w):BOFPRO1/Assets/Scenes/ö.unity
 --- !u!1 &708388020
 >>>>>>> cd1a444cc14f25facb08fa02c84ddc71c0239956:BOFPRO1/Assets/Scenes/ö.unity
 GameObject:
@@ -821,6 +829,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.8457877, y: 1.2568107}
   m_EdgeRadius: 0
+<<<<<<< HEAD:BOFPRO1/Assets/Scenes/Pung.unity
 <<<<<<< HEAD
 --- !u!114 &708388025
 MonoBehaviour:
@@ -982,6 +991,8 @@ CanvasRenderer:
   m_GameObject: {fileID: 319129831}
   m_CullTransparentMesh: 1
 --- !u!1 &332196818
+=======
+>>>>>>> parent of 1403982 (w):BOFPRO1/Assets/Scenes/ö.unity
 --- !u!1 &760066661
 >>>>>>> cd1a444cc14f25facb08fa02c84ddc71c0239956:BOFPRO1/Assets/Scenes/ö.unity
 GameObject:
@@ -1434,6 +1445,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 332196818}
   m_CullTransparentMesh: 1
+<<<<<<< HEAD:BOFPRO1/Assets/Scenes/Pung.unity
 --- !u!224 &332196821
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2625,12 +2637,20 @@ RectTransform:
 =======
 >>>>>>> 809d4938a2eae6b48c45d08c4e9272921d6f47cc
 >>>>>>> cd1a444cc14f25facb08fa02c84ddc71c0239956:BOFPRO1/Assets/Scenes/ö.unity
+=======
+>>>>>>> parent of 1403982 (w):BOFPRO1/Assets/Scenes/ö.unity
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
+<<<<<<< HEAD:BOFPRO1/Assets/Scenes/Pung.unity
   - {fileID: 356004601}
   - {fileID: 1397002872}
   - {fileID: 656568124}
   - {fileID: 45502409}
 >>>>>>> cd1a444cc14f25facb08fa02c84ddc71c0239956:BOFPRO1/Assets/Scenes/ö.unity
+=======
+  - {fileID: 708388021}
+  - {fileID: 492752632}
+  - {fileID: 254301484}
+>>>>>>> parent of 1403982 (w):BOFPRO1/Assets/Scenes/ö.unity
