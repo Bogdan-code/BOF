@@ -1,11 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Data.SqlTypes;
+using UnityEditor.SearchService;
+using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public static class pengar
 {
 
     public static float money;
+ 
+
 
 
     public static void startGame(float startingCash)
@@ -18,6 +23,11 @@ public static class pengar
             money -= Cost;
     }
 
-     
-    
+    public static void AddMoney(float Cost)
+    {
+        money += Cost;
+    }
+
+
+
 }

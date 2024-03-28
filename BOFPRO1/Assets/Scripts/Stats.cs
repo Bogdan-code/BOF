@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Data.SqlTypes;
 using TMPro;
+using UnityEditor.SearchService;
 using UnityEngine;
 
 public class Stats : MonoBehaviour
@@ -11,9 +12,8 @@ public class Stats : MonoBehaviour
     [SerializeField]
     private float startCash;
 
-    public TextMeshProUGUI text;
 
-
+    public TextMeshProUGUI pengarText;
 
     
     void Start()
@@ -24,6 +24,7 @@ public class Stats : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        text.text = pengar.money.ToString();
+        pengarText.text = pengar.money.ToString();
+
     }
 }

@@ -9,6 +9,12 @@ EditorBuildSettings:
     path: Assets/Scenes/SampleScene.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
   - enabled: 1
+    path: Assets/Scenes/Bogdan.unity
+    guid: 3185650d43fa5f041ab4b003a04625bc
+  - enabled: 1
+    path: Assets/Scenes/Shops/Shop Fisk.unity
+    guid: dd340711390914b48817491803fe715a
+  - enabled: 1
     path: Assets/Scenes/Menu.unity
     guid: 63391c28c2a32ec4db0d453aae2246b3
   - enabled: 1
