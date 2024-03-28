@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -38,9 +39,15 @@ public class FIshingMiniGame : MonoBehaviour
 
     [SerializeField] float Failtimer = 10f; // innebär att om vår firre är utanför hook området i 10 sekunder totalt tappar du firren
 
+    public TextMeshProUGUI winText;
+    public TextMeshProUGUI loseText;
+
     private void Start()
     {
         Resize();
+        
+        winText.enabled = false;
+        loseText.enabled = false;
     }
 
     private void Update()
@@ -106,12 +113,14 @@ public class FIshingMiniGame : MonoBehaviour
     private void Lose()
     {
         pause = true;
+        loseText.enabled = true;
         Debug.Log("Tönt");
     }
 
     private void Win()
     {
         pause = true;
+        winText.enabled = true;
         Debug.Log("Bra att du kan gö nåt i ditt pissliv iallafall");
     }
 
