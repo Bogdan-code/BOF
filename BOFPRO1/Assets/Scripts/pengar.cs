@@ -1,18 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
+using System.Data.SqlTypes;
 
-public class pengar : MonoBehaviour
+public static class pengar
 {
-    // Start is called before the first frame update
-    void Start()
+
+    public static float money;
+
+
+    public static void startGame(float startingCash)
     {
-        
+        money = startingCash;
     }
 
-    // Update is called once per frame
-    void Update()
+    public static void RemoveMoney(float Cost)
     {
-        
+            money -= Cost;
     }
+
+     
+    
 }
