@@ -12,11 +12,13 @@ public class shopIngång : MonoBehaviour
 
     void Update()
     {
-        void OnCollisionEnter2D(Collider2D collider){
-            if(collider.name == "Player")
-            {
-                SceneManager.LoadScene(sceneId);
-            }
+
+    }
+    void OnCollisionEnter2D(Collider2D collider)
+    {
+        if (collider.name == "Player")
+        {
+            SceneManager.LoadScene(sceneId);
         }
     }
 }
