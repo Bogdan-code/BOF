@@ -12,6 +12,6 @@ EditorBuildSettings:
     path: Assets/Scenes/Menu.unity
     guid: 63391c28c2a32ec4db0d453aae2246b3
   - enabled: 1
-    path: Assets/Scenes/Game.unity
+    path: Assets/Scenes/Frans.unity
     guid: e21b1412afac0ac4f80a5a6d434aeab7
   m_configObjects: {}
