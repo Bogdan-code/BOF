@@ -392,6 +392,7 @@ Transform:
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 --- !u!1 &559989616
 GameObject:
@@ -612,6 +613,8 @@ Transform:
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 >>>>>>> parent of 809d493 (2)
+=======
+>>>>>>> parent of 1403982 (w)
 --- !u!1 &708388020
 GameObject:
   m_ObjectHideFlags: 0
@@ -733,6 +736,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.8457877, y: 1.2568107}
   m_EdgeRadius: 0
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 --- !u!1 &730157582
@@ -973,6 +977,8 @@ CanvasRenderer:
   m_GameObject: {fileID: 731857886}
   m_CullTransparentMesh: 1
 >>>>>>> parent of 809d493 (2)
+=======
+>>>>>>> parent of 1403982 (w)
 --- !u!1 &760066661
 GameObject:
   m_ObjectHideFlags: 0
@@ -1244,6 +1250,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 906095838}
   m_CullTransparentMesh: 1
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 --- !u!1 &917721587
@@ -1693,6 +1700,8 @@ CanvasRenderer:
   m_GameObject: {fileID: 2116303137}
   m_CullTransparentMesh: 1
 >>>>>>> parent of 809d493 (2)
+=======
+>>>>>>> parent of 1403982 (w)
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -1701,7 +1710,10 @@ SceneRoots:
   - {fileID: 492752632}
   - {fileID: 254301484}
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
   - {fileID: 686636075}
   - {fileID: 730157586}
 >>>>>>> parent of 809d493 (2)
+=======
+>>>>>>> parent of 1403982 (w)
