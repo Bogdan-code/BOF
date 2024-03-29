@@ -14,7 +14,6 @@ public class Stats : MonoBehaviour
 
 
     public TextMeshProUGUI pengarText;
-    private float time1;
     
     void Start()
     {
@@ -25,22 +24,9 @@ public class Stats : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        pengarText.text = pengar.money.ToString();
+        pengarText.text = "Wallet: " + pengar.money.ToString() + "$";
 
-        if (Input.GetKeyDown(KeyCode.F))
-        {
-            time1 = Time.time;
 
-            if (time1 == 1)
-            {
-                Debug.Log("Lol1");
-            }
-            if (time1 == 2)
-            {
-                Debug.Log("Lol2");
-            }
-        }
-    
     }
 
    

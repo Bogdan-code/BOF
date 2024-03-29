@@ -9,13 +9,23 @@ public class shopIngång : MonoBehaviour
 {
 
     [SerializeField] private int sceneId;
-
+    float waitTime = 0.2f;
+    float whenOpen = 0;
+    bool changed=false;
+    
     void Update()
     {
-
+        Debug.Log(Time.time);
+        if(Time.time > whenOpen && changed) { ChangeScene(); }
     }
     void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.tag == "Player") { SceneManager.LoadScene(sceneId); }
+        whenOpen = Time.time + waitTime;
+        changed = true;
+    }
+    void ChangeScene()
+    {
+        SceneManager.LoadScene(sceneId);
+        changed = false;
     }
 }
