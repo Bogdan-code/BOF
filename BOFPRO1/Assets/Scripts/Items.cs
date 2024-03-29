@@ -8,11 +8,14 @@ public class Items : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Player player = collision.GetComponent<Player>(); // spelaren går in i itemet
+        Player player = FindObjectOfType<Player>();
+        if (player == null)
+        {
+            Debug.LogError("Player not found in the scene!");
+        }
 
         if (collision.CompareTag("Player"))
         {
-            Debug.Log("Boggie");
             player.inventory.Add(type); // lägg till itemet till spelaren
             Destroy(this.gameObject); // ta bort itemet från skärmen
         }

@@ -2170,6 +2170,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2697332261711182442, guid: db032e9357ca4e749b757996dcfeab60, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3306171383127809671, guid: db032e9357ca4e749b757996dcfeab60, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.5707208
@@ -2213,6 +2217,10 @@ PrefabInstance:
     - target: {fileID: 7932170188760250916, guid: db032e9357ca4e749b757996dcfeab60, type: 3}
       propertyPath: m_Name
       value: Fish
+      objectReference: {fileID: 0}
+    - target: {fileID: 7932170188760250916, guid: db032e9357ca4e749b757996dcfeab60, type: 3}
+      propertyPath: m_TagString
+      value: Player
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

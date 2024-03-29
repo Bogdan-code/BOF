@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable] // behövs för att vi ska kunna se inventoryt i inspectorn i unity
-public class Inventory
+public class Inventory 
 {
     [System.Serializable]
     public class Slot
