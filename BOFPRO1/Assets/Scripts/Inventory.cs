@@ -14,6 +14,8 @@ public class Inventory
         public int maxAllowed; // antal föremål som är tillåtna i slottet
         public Items.FishType type;
 
+        public Sprite icon; 
+
         public Slot ()
         {
             // nu ska vi lägga till en constructor i slot funktionen, i constructor kommer vi att ställa in alla våra variabler till deras standardvärde
@@ -32,10 +34,11 @@ public class Inventory
         }
 
         // nu kommer vi kommer att ta en variabel av firre typen som vi lägger till
-        public void AddItem(Items.FishType type)
+        public void AddItem(Items item)
         {
             // nu kommer vi att ställa in så att slot typen lika med typen som vi rattar in
-            this.type = type;
+            this.type = item.type;
+            this.icon = item.icon;
             count++;
         }
     }
@@ -54,14 +57,14 @@ public class Inventory
     }
 
     // nu ska vi lägga till ett sätt för våra spelare att lägga till firrar i sitt inventory när de tar upp dem
-    public void Add(Items.FishType typeToAdd)
+    public void Add(Items item)
     {
         // vi måste söka igenom vårt inventory för alla firrar som är av samma typ som firren vi försöker lägga till
         foreach(Slot slot in slots) 
         {
-            if (slot.type == typeToAdd && slot.CanAddItem())
+            if (slot.type == item.type && slot.CanAddItem())
             {
-                slot.AddItem(typeToAdd);
+                slot.AddItem(item);
                 return;
             }
         }
@@ -70,7 +73,7 @@ public class Inventory
         {
             if(slot.type == Items.FishType.None)
             {
-                slot.AddItem(typeToAdd);
+                slot.AddItem(item);
                 return;
             }
         }
