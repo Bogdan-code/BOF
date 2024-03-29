@@ -10,8 +10,9 @@ public class Items : MonoBehaviour
     {
         Player player = collision.GetComponent<Player>(); // spelaren går in i itemet
 
-        if (player)
+        if (collision.CompareTag("Player"))
         {
+            Debug.Log("Boggie");
             player.inventory.Add(type); // lägg till itemet till spelaren
             Destroy(this.gameObject); // ta bort itemet från skärmen
         }
@@ -19,6 +20,6 @@ public class Items : MonoBehaviour
 
     public enum FishType
     {
-        None, Samlon
+        None, Salmon
     }
 }
