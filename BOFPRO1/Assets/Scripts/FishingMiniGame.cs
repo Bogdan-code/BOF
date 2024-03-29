@@ -57,14 +57,24 @@ public class FishingMiniGame : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.F) && !fishing)
         {
-            fishGameUi.SetActive(true); fishing = true;
-            ResetValues();
+            if (StartFuckingFishing.isInFishingPlace == true)
+            {
+
+                fishing = true;
+                ResetValues();
+                
+
+            }
+            else return;
+            
 
         }
 
 
         if (fishing)
         {
+            fishGameUi.SetActive(true);
+
             Fish();
             Hook();
             ProgressCheck();
