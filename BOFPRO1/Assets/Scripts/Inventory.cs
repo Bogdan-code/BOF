@@ -19,7 +19,7 @@ public class Inventory
             // nu ska vi lägga till en constructor i slot funktionen, i constructor kommer vi att ställa in alla våra variabler till deras standardvärde
             type = Items.FishType.None;
             count = 0;
-            maxAllowed = 1;
+            maxAllowed = 2;
         }
 
         public bool CanAddItem()
