@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,7 +6,7 @@ using UnityEngine;
 public class StartFuckingFishing : MonoBehaviour
 {
     public GameObject fishingUi;
-
+    public static bool isInFishingPlace = false;
     // Update is called once per frame
     void Update()
     {
@@ -16,8 +17,8 @@ public class StartFuckingFishing : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            fishingUi.SetActive(true);
-
+            isInFishingPlace = true;
+            
 
         }
 
@@ -26,7 +27,8 @@ public class StartFuckingFishing : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            fishingUi.SetActive(false);
+            isInFishingPlace = false;
+
         }
 
     }

@@ -57,14 +57,24 @@ public class FishingMiniGame : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.F) && !fishing)
         {
-            fishGameUi.SetActive(true); fishing = true;
-            ResetValues();
+            if (StartFuckingFishing.isInFishingPlace == true)
+            {
+
+                fishing = true;
+                ResetValues();
+                
+
+            }
+            else return;
+            
 
         }
 
 
         if (fishing)
         {
+            fishGameUi.SetActive(true);
+
             Fish();
             Hook();
             ProgressCheck();
@@ -75,15 +85,12 @@ public class FishingMiniGame : MonoBehaviour
         if (!fishing && (Time.time > timeWhenDisappear))
         {
             fishGameUi.SetActive(false);
+            winText.enabled = false;
+            loseText.enabled = false;
             player.GetComponent<Movement>().enabled = true;
 
         }
-        if (!fishing && (Time.time > timeWhenDisappear))
-        {
-            fishGameUi.SetActive(false);
-            player.GetComponent<Movement>().enabled = true;
 
-        }
 
     }
 
@@ -100,6 +107,8 @@ public class FishingMiniGame : MonoBehaviour
         hookProgress = 0f;
         Resize();
         hookPosition = 0f;
+        winText.enabled = false;
+        loseText.enabled = false;
         
 }
 
@@ -161,6 +170,8 @@ public class FishingMiniGame : MonoBehaviour
     {
         fishing = false;
         loseText.enabled = true;
+        fishGameUi.SetActive(false);
+
         timeWhenDisappear = Time.time + timeToAppear;
         Debug.Log("Fish Lost");
     }
@@ -169,6 +180,8 @@ public class FishingMiniGame : MonoBehaviour
     {
         fishing = false;
         winText.enabled = true;
+                fishGameUi.SetActive(false);
+
         timeWhenDisappear = Time.time + timeToAppear;
         Debug.Log("+ Fish");
     }
