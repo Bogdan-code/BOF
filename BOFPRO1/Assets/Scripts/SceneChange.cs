@@ -15,7 +15,6 @@ public class shopIngång : MonoBehaviour
     
     void Update()
     {
-        Debug.Log(Time.time);
         if(Time.time > whenOpen && changed) { ChangeScene(); }
     }
     void OnTriggerEnter2D(Collider2D other)

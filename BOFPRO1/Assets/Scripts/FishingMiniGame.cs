@@ -6,8 +6,11 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class FIshingMiniGame : MonoBehaviour
+public class FishingMiniGame : MonoBehaviour
 {
+
+    public GameObject fishGameUi;
+    public GameObject player;
     [SerializeField] Transform topPivot;
     [SerializeField] Transform bottomPivot;
     [SerializeField] Transform fish;
@@ -20,7 +23,7 @@ public class FIshingMiniGame : MonoBehaviour
     [SerializeField] Transform hook;
     float hookPosition;
     [SerializeField] float hookSize = 0.1f;
-    [SerializeField] float hookPower = 0.5f; // är värdet som visar hur snabbt fisken kommer att öka sin hookProgress om den är inne i hook området
+    [SerializeField] float hookPower =0.5f; // är värdet som visar hur snabbt fisken kommer att öka sin hookProgress om den är inne i hook området
     float hookProgress;
     float hookPullVelocity; // är den nuvarande hastigheten som din hook rör sig inom fiskeområdet, ett positivt värde värdeinnebär att hooken stiger och ett negativt värde innebär att hooken faller ner
     [SerializeField] float hookPullPower = 0.01f; // power applicerad till din hook, ju högre värde desto snabbare kommer hook området att höjas
@@ -38,34 +41,71 @@ public class FIshingMiniGame : MonoBehaviour
     private void Start()
     {
         Resize();
-        
+        fishGameUi.SetActive(false);
+
         winText.enabled = false;
         loseText.enabled = false;
-        fishing = true;
+        fishing = false;
+
+
     }
+
+
 
     private void Update()
     {
+
+        if (Input.GetKeyDown(KeyCode.F) && !fishing)
+        {
+            fishGameUi.SetActive(true); fishing = true;
+            ResetValues();
+
+        }
+
 
         if (fishing)
         {
             Fish();
             Hook();
             ProgressCheck();
+            player.GetComponent<Movement>().enabled = false;
+            
         }
 
-        if (winText.enabled && (Time.time > timeWhenDisappear))
+        if (!fishing && (Time.time > timeWhenDisappear))
         {
-            SceneManager.LoadScene("Frans");
+            fishGameUi.SetActive(false);
+            player.GetComponent<Movement>().enabled = true;
+
         }
-        if (loseText.enabled && (Time.time > timeWhenDisappear))
+        if (!fishing && (Time.time > timeWhenDisappear))
         {
-            SceneManager.LoadScene("Frans");
+            fishGameUi.SetActive(false);
+            player.GetComponent<Movement>().enabled = true;
+
         }
+
     }
+
+    void ResetValues()
+    {
+         timerMultiplicator = 3f;
+         smoothMotion = 1f;
+         hookPullPower = 0.01f; // power applicerad till din hook, ju högre värde desto snabbare kommer hook området att höjas
+         hookGravityPower = 0.005f;// är kraften som kommer att dra ner hooken
+         hookProgressDegrationPower = 0.1f;// är hastigheten för hookProgressDegration och när din fisk inte är inom hookens range kommer hookProgress att sakta försämras
+         timeToAppear = 2f;
+        timeWhenDisappear = 0f;
+        Failtimer = 8f;
+        hookProgress = 0f;
+        Resize();
+        hookPosition = 0f;
+        
+}
 
     private void Resize()
     {
+
         // nu kommer vi att beräkna storleken på objektet baserat på dess relativa storlek (förstår men förstår ändå inte, är för dum)
         // lagra gränserna för hookSprite i en variabel
         Bounds b = hookSpriteRenderer.bounds;
@@ -78,6 +118,7 @@ public class FIshingMiniGame : MonoBehaviour
         // använd alla dessa variablar med en massa matte
         Is.y = (distance / ySize * hookSize);
         hook.localScale = Is;
+
     }
 
     private void ProgressCheck()
@@ -88,8 +129,8 @@ public class FIshingMiniGame : MonoBehaviour
         progressBarContainer.localScale = Is;
 
         // nu vill vi kolla om våran firre är inuti hook området, för att göra detta räknar vi ut längden på vår hook bar
-        float min = hookPosition - hookSize / 2;
-        float max = hookPosition + hookSize / 2;
+        float min = hookPosition - hookSize/2;
+        float max = hookPosition + hookSize/2;
         // kolla sedan om firren är inuti denna rangen 
         if (min  < fishPosition && fishPosition < max)
         {
@@ -113,6 +154,7 @@ public class FIshingMiniGame : MonoBehaviour
         }
 
         hookProgress = Mathf.Clamp(hookProgress, 0f, 1f);
+        
     }
 
     private void Lose()
@@ -120,7 +162,7 @@ public class FIshingMiniGame : MonoBehaviour
         fishing = false;
         loseText.enabled = true;
         timeWhenDisappear = Time.time + timeToAppear;
-        Debug.Log("Tönt");
+        Debug.Log("Fish Lost");
     }
 
     private void Win()
@@ -128,7 +170,7 @@ public class FIshingMiniGame : MonoBehaviour
         fishing = false;
         winText.enabled = true;
         timeWhenDisappear = Time.time + timeToAppear;
-        Debug.Log("Bra att du kan gö nåt i ditt pissliv iallafall");
+        Debug.Log("+ Fish");
     }
 
     void Hook ()
