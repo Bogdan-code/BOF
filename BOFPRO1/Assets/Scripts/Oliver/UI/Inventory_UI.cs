@@ -45,7 +45,11 @@ public class Inventory_UI : MonoBehaviour
                     // kontrollera om slotten i inventoryt är fylld, om type inte är inget, har vi ett item i vårt inventory
                     if (player.inventory.slots[i].type != Items.FishType.None)
                     {
-
+                        slots[i].SetItem(player.inventory.slots[i]);
+                    }
+                    else
+                    {
+                        slots[i].SetEmpty();
                     }
                 }
             }
