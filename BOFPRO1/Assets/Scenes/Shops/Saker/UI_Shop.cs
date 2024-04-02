@@ -42,6 +42,7 @@ public class UI_Shop : MonoBehaviour
         CreateItemButton(Item.Buyable_Items.Fishingrod_1, Item.GetSprite(Item.Buyable_Items.Fishingrod_1), "Fishingrod 1", Item.GetCost(Item.Buyable_Items.Fishingrod_1), 0);
         CreateItemButton(Item.Buyable_Items.Fishingrod_2, Item.GetSprite(Item.Buyable_Items.Fishingrod_2), "Fishingrod 2", Item.GetCost(Item.Buyable_Items.Fishingrod_2), 1);
         CreateItemButton(Item.Buyable_Items.Fishingrod_3, Item.GetSprite(Item.Buyable_Items.Fishingrod_3), "Fishingrod 3", Item.GetCost(Item.Buyable_Items.Fishingrod_3), 2);
+        noTxt.SetActive(false);
 
         Hide();
 
@@ -72,9 +73,12 @@ public class UI_Shop : MonoBehaviour
         {
             shopCustomer.BoughtItem(itemType);
         }
-        else if (!shopCustomer.TrySpendMoney(Item.GetCost(itemType))){
+        else
+        {
+            Debug.Log("not Enough Money");
             removeTimerActive = true;
             removeTime = Time.time + activeTime;
+            noTxt.SetActive(true);
         }
 
 
