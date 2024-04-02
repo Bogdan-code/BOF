@@ -6,29 +6,30 @@ using UnityEngine;
 public class OpenShop : MonoBehaviour
 {
 
-    public Canvas canvas;
+    [SerializeField] private UI_Shop ui_shop;
 
 
-    private void Start()
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        canvas.enabled = false;
-    }
+        Debug.Log("Fuck");
+        IShopCustomer shopCustomer = other.GetComponent<IShopCustomer>();
+        if(shopCustomer != null){
 
-    // Update is called once per frame
-    void Update()
-    {
+            ui_shop.Show(shopCustomer);
+
+        }
         
-    }
-
-    void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.tag == "Player") { canvas.enabled = true;}
     }
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (other.tag == "Player")
+        Debug.Log("Fuck2");
+        IShopCustomer shopCustomer = other.GetComponent<IShopCustomer>();
+
+        if (shopCustomer != null)
         {
-            canvas.enabled = false;
+
+            ui_shop.Hide();
+
         }
     }
 }

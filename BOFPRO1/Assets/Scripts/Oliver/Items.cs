@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Items : MonoBehaviour
+public class Items : MonoBehaviour 
 {
     public FishType type;
     public Sprite icon;
@@ -24,6 +24,9 @@ public class Items : MonoBehaviour
 
     public enum FishType
     {
-        None, Salmon
+        None, 
+        Salmon,
     }
+    
+
 }
